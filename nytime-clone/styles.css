@@ -26,6 +26,8 @@ body {
   grid-template-areas:
     "header header header"
     "main main aside";
+  container-type: inline-size;
+  container-name: body;
 }
 
 img {
@@ -86,6 +88,7 @@ article img {
 .main-nav {
   grid-area: nav;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-bottom: 0.2rem;
@@ -173,11 +176,14 @@ header nav ul li a {
   justify-content: space-between;
   align-items: center;
   padding-block: 26px;
+  width: clamp(6rem, 80vw, 1200px);
+  /* margin: 0 auto; */
 }
 
 .main-header p {
   font-size: 0.875rem;
   color: #333;
+  width: clamp(6rem, 7vw, 150px);
 }
 .logo {
   display: block;
@@ -360,6 +366,65 @@ aside {
   stroke: var(--color-stroke-primary, #121212);
 }
 
+.opinions {
+  all: unset;
+  padding-top: 0;
+}
+
+.opinion {
+  display: grid;
+  gap: 0rem;
+  justify-items: stretch;
+  align-items: center;
+  grid-template-columns: 80% 20%;
+  padding-block: 1rem;
+}
+
+.opinion *:not(h4) {
+  text-transform: capitalize;
+}
+
+.opinion-image {
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+}
+
+.opinion img[big] {
+  width: 152px;
+  height: 152px;
+}
+
+.opinion:has(img[big]) {
+  grid-template-columns: 50% 50%;
+  align-items: start;
+}
+
+.opinion:has(section:only-child) {
+  grid-template-columns: 1fr;
+}
+
+.opinion img {
+  height: 40px;
+  margin-left: auto;
+}
+
+.opinions h3 {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.opinion figcaption {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.opinion address {
+  font-size: 0.8rem;
+  color: #333;
+  margin-top: 0.3rem;
+}
+
 @container aside (max-width: 400px) {
   aside article {
     display: grid;
@@ -375,5 +440,27 @@ aside {
 
   aside article .news-text {
     height: fit-content;
+  }
+}
+
+@media (max-width: 1350px) {
+  body {
+    width: 90%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "header header"
+      "main main";
+  }
+
+  header {
+    width: 100%;
+  }
+
+  main {
+    border-right: none;
+  }
+
+  aside {
+    display: none;
   }
 }

@@ -399,8 +399,8 @@ aside {
   padding-block: 1rem;
 }
 
-.opinion *:not(h4) {
-  text-transform: capitalize;
+.opinion .opinion-text > *:not(h4) {
+  text-transform: uppercase;
 }
 
 .opinion-image {
@@ -414,8 +414,17 @@ aside {
   height: 152px;
 }
 
+.opinion img[mid] {
+  width: 91px;
+  height: 91px;
+}
+
 .opinion:has(img[big]) {
   grid-template-columns: 50% 50%;
+  align-items: start;
+}
+.opinion:has(img[mid]) {
+  grid-template-columns: 70% 30%;
   align-items: start;
 }
 
@@ -428,13 +437,13 @@ aside {
   margin-left: auto;
 }
 
-.opinions h3 {
+/* .opinions h3 {
   font-size: 0.9rem;
   color: #333;
-}
+} */
 
 .opinion figcaption {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #333;
 }
 
@@ -442,6 +451,34 @@ aside {
   font-size: 0.8rem;
   color: #333;
   margin-top: 0.3rem;
+}
+
+.opinion-text h4 {
+  padding-block: 0.2rem;
+}
+
+.play-button {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.play-button svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--color-background-primary, #ffffff);
+}
+
+.play-button svg path {
+  fill: var(--color-stroke-primary, #121212);
+}
+
+.opinion + .small-two-news figcaption {
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-align: start;
+  margin-bottom: 0.2rem;
 }
 
 @container aside (max-width: 400px) {

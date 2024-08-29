@@ -30,6 +30,8 @@ body {
 
 img {
   max-width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 svg {
@@ -58,11 +60,16 @@ main {
 }
 
 article {
-  padding: 20px;
   display: grid;
-  gap: 20px;
+  /* gap: 20px; */
   grid-template-columns: 35% 65%;
   border-bottom: 1px solid #333;
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
+}
+
+article img {
+  padding-left: 2rem;
 }
 
 .buttons {
@@ -192,6 +199,12 @@ header nav ul li a {
 
 /* Main */
 
+.news-text section + section {
+  border-top: 1px solid #979797;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
 .news-text h3 {
   font-size: 1rem;
   color: #333;
@@ -212,4 +225,83 @@ header nav ul li a {
   font-size: 0.63rem;
   color: #333;
   text-align: end;
+}
+
+.links-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  margin-block: 0.5rem;
+  width: 90%;
+}
+
+.links-between a {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+.links-between a + a {
+  font-weight: unset;
+}
+
+.links-between.sections {
+  display: grid;
+  align-items: start;
+  width: 100%;
+  margin-top: 1.2rem;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: 0.7fr 1fr; */
+  gap: 0.8rem;
+  grid-template-areas:
+    "one two"
+    "three three";
+}
+
+.links-between.sections > section:nth-child(2) {
+  border-left: 1.2px solid #979797;
+  padding-inline: 1.2rem;
+}
+
+.links-between.sections > section:last-child {
+  grid-area: three;
+  display: flex;
+  align-items: start;
+  border-block: 1.2px solid #979797;
+  padding-block: 1.2rem;
+}
+
+.links-between.sections > section:last-child img {
+  height: 91px;
+  margin-right: 0.5rem;
+}
+
+.links-between.sections > section h3 {
+  font-size: 0.8rem;
+  padding-block: 0.2rem;
+  color: #333;
+}
+
+.links-between.sections > section address {
+  all: unset;
+  font-size: 0.75rem;
+  color: #333;
+}
+
+.links-between.sections > section:last-child h3 {
+  font-size: 0.9rem;
+  padding-block: 0.2rem;
+  color: #333;
+}
+
+.links-between.sections > section:last-child p {
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.links-between.sections > section:last-child address {
+  font-size: 0.7rem;
+  color: #333;
 }
